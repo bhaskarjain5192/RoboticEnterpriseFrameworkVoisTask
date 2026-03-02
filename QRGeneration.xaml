@@ -1,0 +1,292 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="QRGeneration" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>QRGeneration_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="QRGeneration" sap:VirtualizedContainerService.HintSize="846,2808" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="553.6,2784.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Variables>
+        <Variable x:TypeArguments="si:FileInfo" Name="download_QRCodeImage" />
+      </TryCatch.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="552,2304.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Chrome The QR Code Generator (TQRCG) Create F" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="518.4,1859.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Always]" ScopeGuid="fdd8051e-20ae-41ca-912e-26ad36d7e5fb" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="516.8,1656.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Plain Text'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,193.6" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fdd8051e-20ae-41ca-912e-26ad36d7e5fb" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="the-qrcode-generator.com" CVScreenId="9acfb732-1aa7-4536-b3af-3437ab23b415" ContentHash="tvqjtKWjr06MMWh8OQQFCw" CvTextArea="674, 477, 69, 15" CvTextArgument="Plain Text" CvType="Text" DesignTimeRectangle="663, 426, 93, 84" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl class='widget_input_tab_header' idx='4' parentid='campaign-list' tag='DIV' /&gt;" Guid="f2e8c626-8df7-48ff-bba0-64a079943ccf" InformativeScreenshot="f77a7ead8b3934ccea8479ff24ed06dd.jpg" Reference="O7wpXtIRokOzB1jiOgOSDw/XZZ7xCuew06KHGesV-Vqww" ScopeSelectorArgument="&lt;html app='chrome.exe' title='The QR Code Generator (TQRCG): Create Free QR Codes' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'Add message'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,245.6" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="fdd8051e-20ae-41ca-912e-26ad36d7e5fb" Text="[&quot;ID : &quot; + in_TransactionItem.SpecificContent(&quot;id&quot;).ToString + &quot; Name : &quot; + in_TransactionItem.SpecificContent(&quot;employee_name&quot;).ToString]" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="the-qrcode-generator.com" CVScreenId="b0164d4b-46c8-4030-9f4e-2efda3391914" ContentHash="q8Boj76yaUCzfEFO41-aug" CvElementArea="266, 650, 859, 160" CvType="InputBox" DesignTimeRectangle="266, 653, 856, 157" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl tag='TEXTAREA' type='' class='input textarea' placeholder='Enter text here' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="ce2fd856-a650-401a-802c-b772afd9d7fd" InformativeScreenshot="9c481209f5a5f63bbd3112f77b22b6fd.jpg" IsResponsive="True" Reference="O7wpXtIRokOzB1jiOgOSDw/vc7Ab4g_dEKZAS4gS_fNOA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='The QR Code Generator (TQRCG): Create Free QR Codes' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="b0164d4b-46c8-4030-9f4e-2efda3391914" CvTextArea="264, 620, 112, 20" CvTextArgument="Add message" CvType="Text" DesignTimeRectangle="266, 616, 856, 26" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Add message ' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Add message' /&gt;" Guid="7925a356-d1d1-4891-b630-e493b9a9a3ff" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'BUTTON downloadBtn'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,193.6" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fdd8051e-20ae-41ca-912e-26ad36d7e5fb" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="the-qrcode-generator.com" CVScreenId="22bda850-5b78-43bc-9243-884ed8d7957d" ContentHash="oNjEBXScV0aCM5yQK_oMLg" CvElementArea="1449, 848, 67, 64" CvType="Button" DesignTimeRectangle="1452, 850, 61, 60" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='downloadBtn' tag='BUTTON' /&gt;" Guid="d58e610e-6bfe-4751-8fd7-2a63dc91dd3a" InformativeScreenshot="ae1a196d5a7991169af85e81864710ff.jpg" Reference="O7wpXtIRokOzB1jiOgOSDw/hi6rWsTHlE-izLd8nC0DiQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='The QR Code Generator (TQRCG): Create Free QR Codes' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'File name'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="483.2,245.6" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="SameAsCard" ScopeIdentifier="fdd8051e-20ae-41ca-912e-26ad36d7e5fb" Text="[in_TransactionItem.SpecificContent(&quot;id&quot;).ToString+&quot;_&quot;+in_TransactionItem.SpecificContent(&quot;employee_name&quot;).ToString]" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="the-qrcode-generator.com" CVScreenId="ff19715b-b08f-4f09-8a33-816b879e1702" ContentHash="0ZHuySyiPkuMWJsswR2F5g" CvElementArea="604, 516, 689, 47" CvType="InputBox" DesignTimeRectangle="606, 517, 688, 46" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='fileName' tag='INPUT' type='text' class='' placeholder='Enter file name' aaname='' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="64406cca-2146-449a-9e23-1fcca225a4ab" InformativeScreenshot="25f33830e7dd74d33f2c2add215840a2.jpg" IsResponsive="True" Reference="O7wpXtIRokOzB1jiOgOSDw/0pK4gb2oI0ilpibOAHU8dA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='The QR Code Generator (TQRCG): Create Free QR Codes' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="ff19715b-b08f-4f09-8a33-816b879e1702" CvTextArea="605, 481, 78, 17" CvTextArgument="File name" CvType="Text" DesignTimeRectangle="606, 478, 688, 26" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='downloadModal' tag='P' type='' class='modal_sub_heading' aaname='File name' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='File name' /&gt;" Guid="935494f6-a385-487d-9192-ab0d5105a14a" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                  <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[download_QRCodeImage]" sap:VirtualizedContainerService.HintSize="483.2,535.2" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" IgnoreFiles="tmp, dwn">
+                    <ui:GetLastDownloadedFile.Body>
+                      <ActivityAction>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,244.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Download'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fdd8051e-20ae-41ca-912e-26ad36d7e5fb" Version="V5">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="the-qrcode-generator.com" CVScreenId="4471316e-15be-4340-8d26-3777ce1d4ced" ContentHash="QF8JukVSh0yTb12Mlpz3Xg" CvElementArea="1146, 941, 149, 49" CvTextArea="1172, 955, 95, 18" CvTextArgument="Download" CvType="Button" DesignTimeRectangle="1149, 942, 145, 46" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Download' parentid='downloadModal' tag='BUTTON' /&gt;" Guid="553dbc25-d347-481a-bd18-842e3b23424c" InformativeScreenshot="74d095d89f657114b4d6cd8e8a6541b0.jpg" Reference="O7wpXtIRokOzB1jiOgOSDw/_u4rQL1Rnke_u9YnLGOuDg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='The QR Code Generator (TQRCG): Create Free QR Codes' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:GetLastDownloadedFile.Body>
+                  </ui:GetLastDownloadedFile>
+                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[in_Config(&quot;QRCodesFolder&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="483.2,183.2" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[download_QRCodeImage.FullName]" />
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.OCREngine>
+              <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                <ActivityFunc.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                </ActivityFunc.Argument>
+              </ActivityFunc>
+            </uix:NApplicationCard.OCREngine>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Chrome" ContentHash="9K1ESwsxLUmFKbMszX_Eyg" IconBase64="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" InformativeScreenshot="ed6ce73e789b81174a1b05a06d1ee1a3.jpg" Reference="O7wpXtIRokOzB1jiOgOSDw/d60Bix8d9UeGfklJoau3Uw" Selector="&lt;html app='chrome.exe' title='The QR Code Generator (TQRCG): Create Free QR Codes' /&gt;" Url="https://www.the-qrcode-generator.com/" Version="V2">
+                <uix:TargetApp.Arguments>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.Arguments>
+                <uix:TargetApp.WorkingDirectory>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.WorkingDirectory>
+              </uix:TargetApp>
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem.SpecificContent(&quot;id&quot;).ToString, in_TransactionItem.SpecificContent(&quot;employee_name&quot;).ToString, in_TransactionItem.SpecificContent(&quot;employee_salary&quot;).ToString,  in_Config(&quot;QRCodesFolder&quot;).ToString + System.IO.Path.GetFileName(download_QRCodeImage.FullName)}]" DataTable="[dt_OnboardingReport]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="518.4,220" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Added rows successfully&quot; + dt_OnboardingReport.RowCount.ToString]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,225.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="518.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[exception]" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="552,89.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>

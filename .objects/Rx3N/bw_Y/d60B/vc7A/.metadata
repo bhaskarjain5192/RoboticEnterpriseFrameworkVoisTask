@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Add message",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "vc7Ab4g_dEKZAS4gS_fNOA",
+  "Reference": "O7wpXtIRokOzB1jiOgOSDw/vc7Ab4g_dEKZAS4gS_fNOA",
+  "ParentRef": "O7wpXtIRokOzB1jiOgOSDw/d60Bix8d9UeGfklJoau3Uw",
+  "Created": "2026-02-28T17:26:58.9968501Z",
+  "Updated": "2026-02-28T17:26:58.9968501Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.1.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.12.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
